@@ -132,6 +132,7 @@ class _FilterBarState<K extends Comparable<K>, T>
           availableWidth: mediaWidth,
           rect: null,
           tableController: controller,
+          theme: theme,
         ),
       );
     }
@@ -154,6 +155,7 @@ class _FilterBarState<K extends Comparable<K>, T>
         availableWidth: mediaWidth,
         rect: rect,
         tableController: controller,
+        theme: theme,
       ),
     );
   }
@@ -173,18 +175,19 @@ class _FilterBarState<K extends Comparable<K>, T>
 class _FiltersDialog<K extends Comparable<K>, T> extends StatelessWidget {
   final RelativeRect? rect;
   final PagedDataTableController<K, T> tableController;
+  final PagedDataTableThemeData theme;
   final double availableWidth;
 
   const _FiltersDialog({
     required this.rect,
     required this.availableWidth,
     required this.tableController,
+    required this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
     final localizations = PagedDataTableLocalization.of(context);
-    final theme = PagedDataTableTheme.of(context);
 
     Widget filtersList = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
